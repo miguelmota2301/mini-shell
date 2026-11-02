@@ -2,18 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "parser.h"
-
-
-void execute_command(char **args) {
-    /*printf("Teste pessoa 1\n");
-    printf("Comando principal: %s\n", args[0]);
-    
-    for (int i = 0; args[i] != NULL; i++) {
-        printf("  arg[%d]: %s\n", i, args[i]);
-    }
-    printf("---------------------------\n\n");
-    */
-    }
+#include "executor.h"
 
 int main(void) {
     char buffer[MAX_INPUT];
