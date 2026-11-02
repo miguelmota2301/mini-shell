@@ -17,12 +17,6 @@ void execute_command(char **args) {
     if (pid == 0){
         execvp(args[0], args);
 
-fprintf(stderr, "Comando: %s\n", args[0]);
-fprintf(stderr, "Código errno: %d\n", errno);
-perror("Detalhes do erro");
-
-_exit(127);
-
         if (errno == EPERM){
             fprintf(stderr, "Permissão negada ao executar: %s\n", args[0]);
         } else if (errno == ENOENT){

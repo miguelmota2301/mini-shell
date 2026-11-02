@@ -3,14 +3,17 @@ CFLAGS = -Wall -Wextra -g
 
 all: minishell
 
-minishell: main.o parser.o
-	$(CC) $(CFLAGS) -o minishell main.o parser.o
+minishell: main.o parser.o executor.o
+	$(CC) $(CFLAGS) -o minishell main.o parser.o executor.o
 
-main.o: main.c parser.h
+main.o: main.c parser.h executor.h
 	$(CC) $(CFLAGS) -c main.c
 
 parser.o: parser.c parser.h
 	$(CC) $(CFLAGS) -c parser.c
+
+executor.o: executor.c executor.h
+	$(CC) $(CFLAGS) -c executor.c
 
 clean:
 	rm -f *.o minishell
