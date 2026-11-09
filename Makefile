@@ -14,7 +14,7 @@ main.o: main.c parser.h executor.h
 parser.o: parser.c parser.h
 	$(CC) $(CFLAGS) -c parser.c
 
-executor.o: executor.c executor.h
+executor.o: executor.c executor.h parser.h
 	$(CC) $(CFLAGS) -c executor.c
 
 clean:

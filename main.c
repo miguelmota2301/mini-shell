@@ -6,7 +6,7 @@
 
 int main(void) {
     char buffer[MAX_INPUT];
-    char *args[MAX_ARGS];
+    Pipeline pipeline;
     int running = 1;
 
     while (running) {
@@ -22,10 +22,14 @@ int main(void) {
             break;
         }
 
-        running = parse_input(buffer, args);
+        int parsed = parse_input(buffer, &pipeline);
+        if (parsed < 0) {
+            continue;
+        }
+        running = parsed;
 
-        if (running && args[0] != NULL) {
-            execute_command(args);
+        if (running && pipeline.count > 0) {
+            execute_pipeline(&pipeline);
         }
     }
 
