@@ -31,7 +31,14 @@ void execute_command(char **args) {
 
     } else {
         int status;
-        wait(&status);
+        pid_t waited_pid;
+        do {
+            waited_pid = wait(&status);
+        } while (waited_pid < 0 && errno == EINTR);
+
+        if (waited_pid < 0) {
+            perror("Erro ao aguardar o processo filho");
+        }
     }
 
-    }
+}

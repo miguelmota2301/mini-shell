@@ -1,6 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
+.PHONY: all clean test
+
 all: minishell
 
 minishell: main.o parser.o executor.o
@@ -17,3 +19,6 @@ executor.o: executor.c executor.h
 
 clean:
 	rm -f *.o minishell
+
+test:
+	python3 tests/test_shell.py

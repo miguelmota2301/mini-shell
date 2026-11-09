@@ -5,10 +5,12 @@
 #define MAX_ARGS 64
 
 //Mostra o "> " usando a chamada write()
-void display_prompt(void);
+//Retorna 0 em caso de sucesso ou -1 em caso de erro.
+int display_prompt(void);
 
 //Lê a linha do terminal usando read()
-//Retorna a quantidade de bytes lidos
+//Repete a leitura se interrompida por sinal (EINTR).
+//Retorna os bytes lidos, 0 para EOF ou -1 em caso de erro.
 int read_input(char *buffer);
 
 //Quebra o buffer lido em um vetor de argumentos para o execvp()

@@ -10,10 +10,15 @@ int main(void) {
     int running = 1;
 
     while (running) {
-        display_prompt();
+        if (display_prompt() < 0) {
+            return EXIT_FAILURE;
+        }
         
         int bytes = read_input(buffer);
-        if (bytes <= 0) {
+        if (bytes < 0) {
+            return EXIT_FAILURE;
+        }
+        if (bytes == 0) {
             break;
         }
 

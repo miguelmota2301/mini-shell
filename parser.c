@@ -2,17 +2,45 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <errno.h>
 #include "parser.h"
 
 
-void display_prompt(void) {
-    //Usa write() para exibir o prompt
-    write(STDOUT_FILENO, "> ", 2);
+int display_prompt(void) {
+    const char prompt[] = "> ";
+    size_t total_written = 0;
+
+    //write() pode escrever menos bytes que o solicitado.
+    while (total_written < sizeof(prompt) - 1) {
+        ssize_t bytes_written = write(STDOUT_FILENO, prompt + total_written,
+                                      sizeof(prompt) - 1 - total_written);
+        if (bytes_written < 0) {
+            if (errno == EINTR) {
+                continue;
+            }
+            perror("Erro ao exibir o prompt");
+            return -1;
+        }
+        if (bytes_written == 0) {
+            fprintf(stderr, "Erro ao exibir o prompt: nenhum byte foi escrito\n");
+            return -1;
+        }
+        total_written += (size_t)bytes_written;
+    }
+
+    return 0;
 }
 
 int read_input(char *buffer) {
-    //Lê até MAX_INPUT bytes diretamente da entrada, definido em parser.h
-    ssize_t bytes_read = read(STDIN_FILENO, buffer, MAX_INPUT - 1);
+    //Reserva um byte do buffer para o terminador da string.
+    ssize_t bytes_read;
+    do {
+        bytes_read = read(STDIN_FILENO, buffer, MAX_INPUT - 1);
+    } while (bytes_read < 0 && errno == EINTR);
+
+    if (bytes_read < 0) {
+        perror("Erro ao ler a entrada");
+    }
     
     if (bytes_read > 0) {
         buffer[bytes_read] = '\0';
