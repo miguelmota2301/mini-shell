@@ -328,18 +328,7 @@ Os testes compilam um executável temporário e usam `--wrap` do linker para sim
 
 ## 9. Demonstração e apresentação
 
-O enunciado também solicita um vídeo de demonstração de até cinco minutos. A gravação e seu link devem ser acrescentados à entrega. O roteiro abaixo pode orientar a demonstração:
-
-| Tempo sugerido | Conteúdo |
-| --- | --- |
-| 0:00 a 0:40 | Apresentar o objetivo e a relação do shell com os serviços do sistema operacional. |
-| 0:40 a 1:30 | Mostrar a divisão entre `main.c`, `parser.c` e `executor.c` e o fluxo de um comando. |
-| 1:30 a 2:20 | Explicar as chamadas obrigatórias e o uso de `pipe()` e `dup2()`, distinguindo pai e filhos. |
-| 2:20 a 3:40 | Compilar e executar; demonstrar `ls`, `cat`, `echo`, um redirecionamento, um pipeline, um comando inexistente e `exit`. |
-| 3:40 a 4:40 | Relatar as dificuldades efetivamente enfrentadas pela equipe, os aprendizados e as limitações da implementação. |
-| 4:40 a 5:00 | Concluir destacando a criação de processos e a execução sequencial dos comandos. |
-
-Na apresentação em sala, reservar também espaço para perguntas, conforme solicitado no enunciado.
+[Vídeo de Demonstração]()
 
 ## 10. Referências
 
