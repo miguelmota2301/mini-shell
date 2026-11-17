@@ -4,6 +4,12 @@ Projeto de Sistemas Operacionais desenvolvido em C para o Projeto Integrador do 
 
 O objetivo é implementar um interpretador de comandos simplificado e aplicar conceitos de criação de processos, execução de programas, entrada e saída e sincronização entre processo pai e processo filho. O mini shell executa programas reais do sistema, como `ls`, `cat` e `echo`.
 
+## Integrantes do grupo
+
+- Eduardo Moraes Tavares
+- Miguel Feliciano Mota Alves
+- Davi Souza Santana
+
 ## 1. Funcionalidades
 
 - Exibição do prompt interativo `> `.
