@@ -335,11 +335,11 @@ Os testes compilam um executável temporário e usam `--wrap` do linker para sim
 ## 9. Demonstração e apresentação
 
 [Vídeo de Demonstração](https://www.youtube.com/watch?v=6oKN2Qrji70)
+
 [Slides da Apresentação](./slides-minishell.pdf)
 
 ## 10. Referências
 
-- Enunciado local: **UNIVERSIDADE FEDERAL DA BAHIA - Projeto.pdf**, páginas 1 e 2.
 - GNU C Library: [criação de processos com `fork()`](https://sourceware.org/glibc/manual/latest/html_node/Creating-a-Process.html).
 - GNU C Library: [execução de arquivos e família `exec`](https://sourceware.org/glibc/manual/latest/html_node/Executing-a-File.html).
 - GNU C Library: [espera e término de processos](https://sourceware.org/glibc/manual/latest/html_node/Process-Completion.html).
